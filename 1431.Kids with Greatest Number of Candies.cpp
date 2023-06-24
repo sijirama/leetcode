@@ -12,9 +12,9 @@ vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
 
     for(int i = 0 ; i < candies.size() ; ++ i){
         if(candies[i] + extraCandies >= MAX){
-            Result.push_back(true);
+            Result.emplace_back(true);
         }else{
-            Result.push_back(false);
+            Result.emplace_back(false);
         }
     }
     return Result;
