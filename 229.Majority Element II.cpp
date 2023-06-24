@@ -6,7 +6,6 @@ Output: [3]
 */
 
 #include <algorithm>
-#include <algorithm>
 #include <iterator>
 #include <vector>
 #include <iostream>
