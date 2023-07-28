@@ -13,25 +13,15 @@ operation.
 using namespace std;
 
 vector<int> productExceptSelf(vector<int> &nums) {
-    vector<int> Result;
+    vector<int> ans;
     for (int i = 0; i < nums.size(); ++i) {
-        int data = 1;
+        int sum = 1;
         for (int j = 0; j < nums.size(); ++j) {
             if (i == j)
                 continue;
-            data *= nums[j];
+            sum *= nums[j];
         }
-        Result.push_back(data);
+        ans.emplace_back(sum);
     }
-    return Result;
-}
-
-int main() {
-    vector<int> que = {1, 2, 3, 4};
-    auto ans = productExceptSelf(que);
-    cout << "[";
-    for (auto i : ans) {
-        cout << i << ",";
-    }
-    cout << "]";
+    return ans;
 }
