@@ -8,20 +8,21 @@
 using namespace std;
 
 vector<int> topKFrequent(vector<int> &nums, int k) {
-    map<int, int> map;
-    std::map<int, int>::iterator it = map.begin();
-    for (int i = 0; i < nums.size(); ++i) {
-        map[nums[i]] += 1;
+    vector<int> ans;
+    map<int, int> M;
+    for (int i : nums) {
+        M[i] += 1;
+    }
+    vector<pair<int, int>> vec = {M.begin(), M.end()};
+
+    auto cmp = [](pair<int, int> a, pair<int, int> b) {
+        return a.second < b.second;
+    };
+
+    sort(vec.begin(), vec.end(), cmp);
+    for (int i = 0; i < k; i++) {
+        ans.push_back(vec[i].first);
     }
 
-    vector<int> ans;
-    int count = 0;
-    while (it != map.end() && count < k) {
-        if (it->second > 1) {
-            ans.emplace_back(it->first);
-        }
-        ++count;
-        ++it;
-    }
     return ans;
 }
